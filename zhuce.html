@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>张小米的注册界面</title>
+    <!-- Bootstrap -->
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css"/>
+    <link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+            <form class="form-horizontal">
+                <span class="heading">用户注册</span>
+                <div class="form-group">
+                    <input type="text" class="form-control" required="required" id="username"
+                           placeholder="用&nbsp&nbsp户&nbsp&nbsp名">
+                    <i class="fa fa-user"></i>
+                </div>
+                <div class="form-group help">
+                    <input type="password" class="form-control" id="password1" required="required"
+                           placeholder="密&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp码">
+                    <i class="fa fa-lock"></i>
+                </div>
+                <div class="form-group help">
+                    <input type="password" class="form-control" id="password2" required="required"
+                           placeholder="密&nbsp码&nbsp确&nbsp认">
+                    <i class="fa fa-lock"></i>
+                </div>
+                <div class="form-group">
+                    <a href="denglu.html">
+                        <button type="button" class="btn btn-default" onclick="check()" style="margin-right:40px;">返回
+                        </button>
+                    </a>
+                    <button type="button" class="btn btn-default" onclick="check()">注册</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>
+    $(document).ready(function () {
+        $('input').keypress(function () {
+            var id = document.activeElement.id;
+            $('#' + id).css("background", "#E0E0E0");
+        });
+    });
+
+    function check() {
+        if ($('#username').val() == "") {
+            $('#username').focus();
+            $('#username').css("background", "pink");
+            return false;
+        }
+        if ($('#password1').val() == "") {
+            $('#password1').focus();
+            $('#password1').css("background", "pink");
+            return false;
+        }
+        if ($('#password2').val() == "") {
+            $('#password2').focus();
+            $('#password2').css("background", "pink");
+            return false;
+        }
+        if ($('#password2').val() != $("#password1").val()) {
+            $('#password2').focus();
+            $('#password1').css("background", "pink");
+            $('#password2').css("background", "pink");
+            return false;
+        }
+        alert("注册成功！\n您的用户名是:" + $('#username').val() + "\n密码是：" + $('#password1').val());
+        window.location.href = 'denglu.html';
+        return true;
+    }
+</script>
+</body>
+</html>
