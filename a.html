@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+<div id="app">
+    <el-button @click="visible = true">按钮</el-button>
+    <el-dialog :visible.sync="visible" title="Hello world">
+        <p>欢迎使用 Element</p>
+    </el-dialog>
+    <el-input v-model="input" id="name" name="name"
+              placeholder="姓&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名">
+        <i class="fa fa-user" slot="prepend"></i>
+    </el-input>
+    <el-form  action="1603.php" method="post" >
+                <el-form-item>
+                    <el-input v-model="input0" id="name" name="name"
+                              placeholder="姓&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名">
+                        <i class="fa fa-user" slot="prepend"></i>
+                    </el-input>
+                </el-form-item>
+
+                <el-form-item>
+                    <el-input v-model="input1" name="number" id="number" onfocus="this.blur()"
+                              placeholder="学&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp号">
+                        <i class="fa">N</i>
+                    </el-input>
+                </el-form-item>
+    </el-form>
+</div>
+</body>
+<!-- 先引入 Vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: function() {
+            return { isible: false,input0:'' }
+        }
+    })
+</script>
+</html>
